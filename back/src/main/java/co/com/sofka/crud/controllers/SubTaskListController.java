@@ -1,6 +1,8 @@
 package co.com.sofka.crud.controllers;
 
+import co.com.sofka.crud.DTO.SubTaskListDTO;
 import co.com.sofka.crud.entity.SubTaskList;
+import co.com.sofka.crud.services.SubTaskListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
