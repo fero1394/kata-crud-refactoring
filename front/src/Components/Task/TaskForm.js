@@ -19,7 +19,7 @@ const TaskForm = () => {
 
 		const vsExprReg = /[A-Za-z0-9_]/; // Caracteres
 		if (vsExprReg.test(request.name)) {
-			document.querySelector(".alert").innerHTML = ""; // Alerta
+			//document.querySelector(".alert").innerHTML = ""; // Alerta
 			fetch(HOST_API + "/task", {
 				method: "POST",
 				body: JSON.stringify(request),
@@ -34,7 +34,7 @@ const TaskForm = () => {
 					formRef.current.reset();
 				});
 		} else {
-			document.querySelector(".alert").innerHTML = "Solo utilice caracteres Alfanuméricos";
+			//document.querySelector(".alert").innerHTML = "Solo utilice caracteres Alfanuméricos";
 		}
 	}
 
