@@ -2,7 +2,6 @@ import React, { useRef, useState, useContext } from 'react';
 import HOST_API from '../Connection';
 import Store from '../Store';
 
-//Formulario para crear las tareas
 const TaskForm = () => {
 	const formRef = useRef(null);
 	const { dispatch, state: { task } } = useContext(Store);
@@ -19,7 +18,7 @@ const TaskForm = () => {
 
 		const vsExprReg = /[A-Za-z0-9_]/; // Caracteres
 		if (vsExprReg.test(request.name)) {
-			//document.querySelector(".alert").innerHTML = ""; // Alerta
+			document.querySelector(".alert").innerHTML = ""; // Alerta
 			fetch(HOST_API + "/task", {
 				method: "POST",
 				body: JSON.stringify(request),
@@ -34,18 +33,18 @@ const TaskForm = () => {
 					formRef.current.reset();
 				});
 		} else {
-			//document.querySelector(".alert").innerHTML = "Solo utilice caracteres Alfanuméricos";
+			document.querySelector(".alert").innerHTML = "Solo utilice caracteres Alfanuméricos";
 		}
 	}
 
-	return <div >
+	return <div className="pt-10">
 		<h3>To-Do List</h3>
-		<form  ref={formRef} >
-			<input type="text" name="name" placeholder="Ingrese el nombre de la lista" defaultValue={item.name} onChange={(event) => {
+		<form className="formList" ref={formRef} className="input-group mb-3">
+			<input className="form-control" type="text" name="name" placeholder="Ingrese el nombre de la lista" defaultValue={item.name} onChange={(event) => {
 				setState({ ...state, name: event.target.value })
 			}} />
-			<button id = "eliminar" onClick={onAdd} disabled={!state.name}>Nueva Lista</button>
-			<div></div>
+			<button id = "eliminar" className="btn btn-primary" onClick={onAdd} disabled={!state.name}>Nueva Lista</button>
+			<div className="alert"></div>
 		</form>
 	</div>
 	;
