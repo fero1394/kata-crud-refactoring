@@ -1,28 +1,29 @@
 package co.com.sofka.crud.controllers;
 
+import co.com.sofka.crud.entity.SubTaskList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class TaskListController {
+public class SubTaskListController {
 
     @Autowired
-    private TaskListService service;
+    private SubTaskListService service;
 
     @GetMapping(value = "api/tasklist")
-    public Iterable<TaskList> list(){
+    public Iterable<SubTaskList> list(){
         return service.list();
     }
 
     @PostMapping(value = "api/task")
-    public TaskList save(@RequestBody TaskList taskList){
+    public SubTaskList save(@RequestBody SubTaskList taskList){
         return service.save(taskList);
     }
 
 
     @PutMapping(value = "api/task")
-    public TaskList update(@RequestBody TaskList taskList){
+    public SubTaskList update(@RequestBody SubTaskList taskList){
         if(taskList.getId() != null){
             return service.save(taskList);
         }
@@ -35,7 +36,7 @@ public class TaskListController {
     }
 
     @GetMapping(value = "api/{id}/task")
-    public TaskList get(@PathVariable("id") Long id){
+    public SubTaskList get(@PathVariable("id") Long id){
         return service.get(id);
     }
 }
