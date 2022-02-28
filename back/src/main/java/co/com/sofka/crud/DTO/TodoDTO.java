@@ -18,7 +18,7 @@ public class TodoDTO {
         return todo.getName();
     }
 
-    public boolean getisCompleted(){
+    public boolean getIsCompleted(){
         return todo.isCompleted();
     }
 
